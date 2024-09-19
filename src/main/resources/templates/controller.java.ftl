@@ -68,5 +68,10 @@ public class ${table.controllerName} {
     public Boolean deleteBatch(@RequestBody List<Integer> ids) {
         return ${table.entityPath}Service.removeBatchByIds(ids);
     }
+
+    @GetMapping("/detail")
+    public ${entity} detail(@RequestParam ${entity} ${table.entityPath}) {
+        return  ${table.entityPath}Service.getOnly(new LambdaQueryWrapper<>(${table.entityPath}));
+    }
 }
 </#if>
